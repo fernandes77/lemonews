@@ -1,16 +1,20 @@
+/* eslint-disable @next/next/no-img-element */
+import { ActiveLink } from '../ActiveLink'
 import SignInButton from '../SignInButton'
 import styles from './styles.module.scss'
 
-const Header = () => {
+export default function Header() {
 	return (
 		<header className={styles.headerContainer}>
 			<div className={styles.headerContent}>
 				<img src="/images/logo.svg" alt="lemo.news" />
 				<nav>
-					<a className={styles.active} href="">
-						Home
-					</a>
-					<a href="">Posts</a>
+					<ActiveLink activeClassname={styles.active} href="/">
+						<a>Home</a>
+					</ActiveLink>
+					<ActiveLink activeClassname={styles.active} href="/posts">
+						<a>Posts</a>
+					</ActiveLink>
 				</nav>
 
 				<SignInButton />
@@ -18,5 +22,3 @@ const Header = () => {
 		</header>
 	)
 }
-
-export default Header
